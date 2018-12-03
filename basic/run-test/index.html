@@ -397,8 +397,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="指定用例集路径" class="md-nav__link">
-    指定用例集路径
+  <a href="#_1" title="指定测试用例路径" class="md-nav__link">
+    指定测试用例路径
   </a>
   
 </li>
@@ -413,6 +413,13 @@
         <li class="md-nav__item">
   <a href="#_2" title="日志级别" class="md-nav__link">
     日志级别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="保存详细过程数据" class="md-nav__link">
+    保存详细过程数据
   </a>
   
 </li>
@@ -608,8 +615,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="指定用例集路径" class="md-nav__link">
-    指定用例集路径
+  <a href="#_1" title="指定测试用例路径" class="md-nav__link">
+    指定测试用例路径
   </a>
   
 </li>
@@ -624,6 +631,13 @@
         <li class="md-nav__item">
   <a href="#_2" title="日志级别" class="md-nav__link">
     日志级别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="保存详细过程数据" class="md-nav__link">
+    保存详细过程数据
   </a>
   
 </li>
@@ -647,20 +661,60 @@
                 
                   <h1>运行测试</h1>
                 
-                <h2 id="_1">指定用例集路径<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>使用 HttpRunner 指定用例集路径时，支持多种方式。</p>
-<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例：</p>
+                <p>HttpRunner 在命令行中启动测试时，通过指定参数，可实现丰富的测试特性控制。</p>
+<div class="codehilite"><pre><span></span>$ hrun -h
+usage: main-debug.py [-h] [-V] [--log-level LOG_LEVEL] [--log-file LOG_FILE]
+                     [--dot-env-path DOT_ENV_PATH]
+                     [--report-template REPORT_TEMPLATE]
+                     [--report-dir REPORT_DIR] [--failfast] [--save-tests]
+                     [--startproject STARTPROJECT]
+                     [--validate [VALIDATE [VALIDATE ...]]]
+                     [--prettify [PRETTIFY [PRETTIFY ...]]]
+                     [testcase_paths [testcase_paths ...]]
+
+One-stop solution for HTTP(S) testing.
+
+positional arguments:
+  testcase_paths        testcase file path
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -V, --version         show version
+  --log-level LOG_LEVEL
+                        Specify logging level, default is INFO.
+  --log-file LOG_FILE   Write logs to specified file path.
+  --dot-env-path DOT_ENV_PATH
+                        Specify .env file path, which is useful for keeping
+                        sensitive data.
+  --report-template REPORT_TEMPLATE
+                        specify report template path.
+  --report-dir REPORT_DIR
+                        specify report save directory.
+  --failfast            Stop the test run on the first error or failure.
+  --save-tests          Save loaded tests and parsed tests to JSON file.
+  --startproject STARTPROJECT
+                        Specify new project name.
+  --validate [VALIDATE [VALIDATE ...]]
+                        Validate JSON testcase format.
+  --prettify [PRETTIFY [PRETTIFY ...]]
+                        Prettify JSON testcase format.
+</pre></div>
+
+
+<h2 id="_1">指定测试用例路径<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>使用 HttpRunner 指定测试用例路径时，支持多种方式。</p>
+<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例，并生成一个测试报告文件：</p>
 <div class="codehilite"><pre><span></span>$ hrun filepath/testcase.yml
 </pre></div>
 
 
-<p>使用 hrun 命令外加多个测试用例文件的路径，即可运行多个测试用例：</p>
-<div class="codehilite"><pre><span></span>$ hrun filepath1/testcase1.yml filepath2/testcase2.yml
+<p>将多个测试用例文件放置到文件夹中，指定文件夹路径可将文件夹下所有测试用例作为测试用例集进行运行，并生成一个测试报告文件：</p>
+<div class="codehilite"><pre><span></span>$ hrun testcases_folder_path
 </pre></div>
 
 
-<p>使用 hrun 命令外加文件夹的路径，即可运行指定文件夹下所有的测试用例：</p>
-<div class="codehilite"><pre><span></span>$ hrun testcases_folder_path
+<p>使用 hrun 命令外加多个测试用例文件（文件夹）的路径，即可依次运行多个测试用例（用例集），并分别生成对应的测试报告文件：</p>
+<div class="codehilite"><pre><span></span>$ hrun filepath1/testcase1.yml filefolder2/
 </pre></div>
 
 
@@ -676,55 +730,165 @@
 
 <h2 id="_2">日志级别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
-<div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
-INFO     Loading environment variables from /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/.env
-get token with iOS/10.1 and 2.8.5
-INFO     POST http://127.0.0.1:5000/api/get-token
-INFO     status_code: 200, response_time: 11 ms, response_length: 46 bytes
+<div class="codehilite"><pre><span></span>$ hrun tests/httpbin/hooks.yml
+INFO     Loading environment variables from tests/.env
+INFO     Start to run testcase: basic test with httpbin
+headers
+INFO     GET http://httpbin.org:80/headers
+INFO     status_code: 200, response_time(ms): 491.48 ms, response_length: 185 bytes
+.
+alter response
+INFO     GET http://httpbin.org:80/headers
+INFO     status_code: 200, response_time(ms): 248.41 ms, response_length: 185 bytes
 .
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.013s
+Ran 2 tests in 0.845s
 
 OK
 INFO     Start to render Html report ...
-INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-03-12-19-12-56.html
+INFO     Generated Html report: reports/1543827143.html
 </pre></div>
 
 
 <p>若需要查看到更详尽的信息，例如请求的参数和响应的详细内容，可以将日志级别设置为<code>DEBUG</code>，即在命令中添加<code>--log-level debug</code>。</p>
-<div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml --log-level debug
-get token with iOS/10.1 and 2.8.5
-INFO     POST http://127.0.0.1:5000/api/get-token
-DEBUG    request kwargs(raw): {&#39;headers&#39;: {&#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&#39;}}
-DEBUG    request kwargs(processed): {&#39;headers&#39;: {&#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&#39;}, &#39;timeout&#39;: 120}
-DEBUG    Starting new HTTP connection (1): 127.0.0.1
-DEBUG    http://127.0.0.1:8888 &quot;POST http://127.0.0.1:5000/api/get-token HTTP/1.1&quot; 200 46
-DEBUG    response status_code: 200
-DEBUG    response headers: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Mon, 12 Mar 2018 11:11:48 GMT&#39;,&#39;Proxy-Connection&#39;: &#39;Close&#39;}
-DEBUG    response body: {&quot;success&quot;: true, &quot;token&quot;: &quot;3DFzZen272dbS7qh&quot;}
-INFO     status_code: 200, response_time: 21 ms, response_length: 46 bytes
+<div class="codehilite"><pre><span></span>$ hrun tests/httpbin/hooks.yml --log-level debug
+INFO     Loading environment variables from tests/.env
+DEBUG    Set OS environment variable: UserName
+DEBUG    Set OS environment variable: Password
+DEBUG    Set OS environment variable: PROJECT_KEY
+INFO     Start to run testcase: basic test with httpbin
+headers
+DEBUG    call setup hook actions.
+DEBUG    call hook function: ${setup_hook_prepare_kwargs($request)}
+DEBUG    call hook function: ${setup_hook_add_kwargs($request)}
+DEBUG    call hook function: ${setup_hook_remove_kwargs($request)}
+INFO     GET http://httpbin.org:80/headers
+DEBUG    request kwargs(raw): {&#39;verify&#39;: True}
+DEBUG    processed request:
+&gt; GET http://httpbin.org:80/headers
+&gt; kwargs: {&#39;verify&#39;: True, &#39;timeout&#39;: 120}
+DEBUG
+================== request details ==================
+url              : &#39;http://httpbin.org:80/headers&#39;
+method           : &#39;GET&#39;
+headers          : {&#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
+start_timestamp  : 1543827400.7875352
+verify           : True
+
+DEBUG
+================== response details ==================
+status_code      : 200
+headers          : {&#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Server&#39;: &#39;gunicorn/19.9.0&#39;, &#39;Date&#39;: &#39;Mon, 03 Dec 2018 08:56:41 GMT&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;185&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;, &#39;Via&#39;: &#39;1.1 vegur&#39;}
+content_size     : 185
+response_time_ms : 528.63
+elapsed_ms       : 520.948
+encoding         : None
+content_type     : &#39;application/json&#39;
+ok               : True
+url              : &#39;http://httpbin.org:80/headers&#39;
+reason           : &#39;OK&#39;
+cookies          : {}
+json             : {&#39;headers&#39;: {&#39;Accept&#39;: &#39;*/*&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Connection&#39;: &#39;close&#39;, &#39;Host&#39;: &#39;httpbin.org&#39;, &#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;}}
+
+INFO     status_code: 200, response_time(ms): 528.63 ms, response_length: 185 bytes
+
+DEBUG    call teardown hook actions.
+DEBUG    call hook function: ${teardown_hook_sleep_N_secs($response, 1)}
+DEBUG    start to validate.
+DEBUG    extract: status_code   =&gt; 200
+DEBUG    validate: status_code equals 200(int)  ==&gt; pass
+DEBUG    extract: content.headers.Host  =&gt; httpbin.org
+DEBUG    validate: content.headers.Host contained_by http://httpbin.org:80(str) ==&gt; pass
+.
+alter response
+DEBUG    call setup hook actions.
+DEBUG    call hook function: ${setup_hook_prepare_kwargs($request)}
+INFO     GET http://httpbin.org:80/headers
+DEBUG    request kwargs(raw): {&#39;verify&#39;: True}
+DEBUG    processed request:
+&gt; GET http://httpbin.org:80/headers
+&gt; kwargs: {&#39;verify&#39;: True, &#39;timeout&#39;: 120}
+DEBUG
+================== request details ==================
+url              : &#39;http://httpbin.org:80/headers&#39;
+method           : &#39;GET&#39;
+headers          : {&#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
+start_timestamp  : 1543827401.4223402
+verify           : True
+
+DEBUG
+================== response details ==================
+status_code      : 200
+headers          : {&#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Server&#39;: &#39;gunicorn/19.9.0&#39;, &#39;Date&#39;: &#39;Mon, 03 Dec 2018 08:56:41 GMT&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;185&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;, &#39;Via&#39;: &#39;1.1 vegur&#39;}
+content_size     : 185
+response_time_ms : 269.15
+elapsed_ms       : 267.673
+encoding         : None
+content_type     : &#39;application/json&#39;
+ok               : True
+url              : &#39;http://httpbin.org:80/headers&#39;
+reason           : &#39;OK&#39;
+cookies          : {}
+json             : {&#39;headers&#39;: {&#39;Accept&#39;: &#39;*/*&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Connection&#39;: &#39;close&#39;, &#39;Host&#39;: &#39;httpbin.org&#39;, &#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;}}
+
+INFO     status_code: 200, response_time(ms): 269.15 ms, response_length: 185 bytes
+
+DEBUG    call teardown hook actions.
+DEBUG    call hook function: ${alter_response($response)}
+DEBUG    start to validate.
+DEBUG    extract: status_code   =&gt; 500
+DEBUG    validate: status_code equals 500(int)  ==&gt; pass
+DEBUG    extract: headers.content-type  =&gt; html/text
+DEBUG    validate: headers.content-type equals html/text(str) ==&gt; pass
+DEBUG    extract: json.headers.Host =&gt; 127.0.0.1:8888
+DEBUG    validate: json.headers.Host equals 127.0.0.1:8888(str) ==&gt; pass
+DEBUG    extract: content.headers.Host  =&gt; 127.0.0.1:8888
+DEBUG    validate: content.headers.Host equals 127.0.0.1:8888(str)      ==&gt; pass
+DEBUG    extract: text.headers.Host =&gt; 127.0.0.1:8888
+DEBUG    validate: text.headers.Host equals 127.0.0.1:8888(str) ==&gt; pass
 .
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.023s
+Ran 2 tests in 0.908s
 
 OK
+
 DEBUG    No html report template specified, use default.
 INFO     Start to render Html report ...
-DEBUG    render data: {&#39;success&#39;: True, &#39;stat&#39;: {&#39;testsRun&#39;: 1, &#39;failures&#39;: 0, &#39;errors&#39;: 0, &#39;skipped&#39;: 0, &#39;expectedFailures&#39;: 0, &#39;unexpectedSuccesses&#39;: 0, &#39;successes&#39;: 1}, &#39;platform&#39;: {&#39;httprunner_version&#39;: &#39;1.1.0&#39;, &#39;python_version&#39;: &#39;CPython 3.6.4&#39;, &#39;platform&#39;: &#39;Darwin-17.4.0-x86_64-i386-64bit&#39;}, &#39;time&#39;: {&#39;start_at&#39;: datetime.datetime(2018, 3, 12, 19, 11, 48, 588562), &#39;duration&#39;: 0.04852795600891113}, &#39;records&#39;: [{&#39;name&#39;: &#39;get token with iOS/10.1 and 2.8.5&#39;, &#39;status&#39;: &#39;success&#39;, &#39;response_time&#39;: 21, &#39;attachment&#39;: &#39;&#39;, &#39;meta_data&#39;: {&#39;method&#39;: &#39;POST&#39;, &#39;request_time&#39;: 1520853108.589503, &#39;response_time&#39;: 21, &#39;elapsed&#39;: 0.00506, &#39;url&#39;: &#39;/api/get-token&#39;, &#39;request_headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;, &#39;Content-Length&#39;: &#39;52&#39;}, &#39;request_body&#39;: &#39;{&quot;sign&quot;: &quot;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&quot;}&#39;, &#39;status_code&#39;: 200, &#39;response_headers&#39;: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Mon, 12 Mar 2018 11:11:48 GMT&#39;, &#39;Proxy-Connection&#39;: &#39;Close&#39;}, &#39;response_body&#39;: &#39;{&quot;success&quot;: true, &quot;token&quot;: &quot;3DFzZen272dbS7qh&quot;}&#39;, &#39;content_size&#39;: 46}}]}
-INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-03-12-19-11-48.html
-DEBUG
-================== Variables &amp; Output ==================
-Type   | Variable         :  Value
------- | ---------------- :  ---------------------------
-Var    | user_agent       :  iOS/10.1
-Var    | device_sn        :  ${gen_random_string(15)}
-Var    | os_platform      :  ios
-Var    | app_version      :  2.8.5
+INFO     Generated Html report: reports/1543827400.html
+</pre></div>
 
-Out    | token            :  3DFzZen272dbS7qh
---------------------------------------------------------
+
+<h2 id="_3">保存详细过程数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>为了方便定位问题，运行测试时可指定 <code>--save-tests</code> 参数，即可将运行过程的中间数据保存为日志文件。</p>
+<p>日志文件将保存在项目根目录的 <code>logs</code> 文件夹中，生成的文件有如下三个（XXX为测试用例名称）：</p>
+<ul>
+<li><code>XXX.loaded.json</code>：测试用例加载后的数据结构内容，加载包括测试用例文件（YAML/JSON）、debugtalk.py、.env 等所有项目文件</li>
+<li><code>XXX.parsed.json</code>：测试用例解析后的数据结构内容，解析内容包括测试用例引用（API/testcase）、变量计算和替换、base_url 拼接等</li>
+<li><code>XXX.summary.json</code>：测试报告生成前的数据结构内容</li>
+</ul>
+<div class="codehilite"><pre><span></span>hrun tests/httpbin/hooks.yml --save-tests
+INFO     Loading environment variables from tests/.env
+dump file: tests/logs/hooks.loaded.json
+dump file: tests/logs/hooks.parsed.json
+INFO     Start to run testcase: basic test with httpbin
+headers
+INFO     GET http://httpbin.org:80/headers
+INFO     status_code: 200, response_time(ms): 589.45 ms, response_length: 185 bytes
+.
+alter response
+INFO     GET http://httpbin.org:80/headers
+INFO     status_code: 200, response_time(ms): 313.6 ms, response_length: 185 bytes
+.
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.009s
+
+OK
+dump file: tests/logs/hooks.summary.json
+INFO     Start to render Html report ...
+INFO     Generated Html report: reports/1543827620.html
 </pre></div>
                 
                   
