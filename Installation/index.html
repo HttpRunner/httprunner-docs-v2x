@@ -692,26 +692,20 @@
 <p><strong>Python 版本</strong>：HttpRunner 支持 Python 3.4 及以上的所有版本，并使用 Travis-CI 进行了<a href="https://travis-ci.org/HttpRunner/HttpRunner">持续集成测试</a>，测试覆盖的版本包括 2.7/3.4/3.5/3.6/3.7。虽然 HttpRunner 暂时保留了对 Python 2.7 的兼容支持，但强烈建议使用 Python 3.4 及以上版本。</p>
 <p><strong>操作系统</strong>：推荐使用 macOS/Linux。</p>
 <h2 id="_2">安装方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>HttpRunner 的稳定版本托管在 PyPI 上，可以使用<code>pip</code>或者<code>easy_install</code>进行安装。</p>
+<p>HttpRunner 的稳定版本托管在 PyPI 上，可以使用 <code>pip</code> 进行安装。</p>
 <div class="codehilite"><pre><span></span>$ pip install httprunner
 </pre></div>
 
 
-<p>或者</p>
-<div class="codehilite"><pre><span></span>$ easy_install httprunner
-</pre></div>
-
-
 <p>如果你需要使用最新的开发版本，那么可以采用项目的 GitHub 仓库地址进行安装：</p>
-<div class="codehilite"><pre><span></span>$ pip install git+https://github.com/HttpRunner/HttpRunner.git#egg<span class="o">=</span>HttpRunner
+<div class="codehilite"><pre><span></span>$ pip install git+https://github.com/HttpRunner/HttpRunner.git@master
 </pre></div>
 
 
 <h2 id="_3">版本升级<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>假如你之前已经安装过了 HttpRunner，现在需要升级到最新版本，那么你可以使用<code>-U</code>参数。该参数对以上三种安装方式均生效。</p>
 <div class="codehilite"><pre><span></span>$ pip install -U HttpRunner
-$ easy_install -U HttpRunner
-$ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg<span class="o">=</span>HttpRunner
+$ pip install -U git+https://github.com/HttpRunner/HttpRunner.git@master
 </pre></div>
 
 
@@ -727,10 +721,10 @@ $ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg<span class
 <p>httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，个人推荐使用<code>hrun</code>命令。</p>
 <p>运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功。</p>
 <div class="codehilite"><pre><span></span>$ hrun -V
-2.0.0
+2.0.2
 
 $ har2case -V
-0.1.10
+0.2.0
 </pre></div>
 
 
@@ -760,25 +754,25 @@ $ har2case -V
 <p>查看 HttpRunner 的依赖情况：</p>
 <div class="codehilite"><pre><span></span>$ pipenv graph
 
-HttpRunner==1.4.2
-  - colorama [required: Any, installed: 0.3.9]
+HttpRunner==2.0.0
+  - colorama [required: Any, installed: 0.4.0]
   - colorlog [required: Any, installed: 3.1.4]
-  - har2case [required: Any, installed: 0.1.8]
-    - PyYAML [required: Any, installed: 3.12]
+  - har2case [required: Any, installed: 0.2.0]
+    - PyYAML [required: Any, installed: 3.13]
   - Jinja2 [required: Any, installed: 2.10]
     - MarkupSafe [required: &gt;=0.23, installed: 1.0]
-  - PyYAML [required: Any, installed: 3.12]
-  - requests [required: Any, installed: 2.18.4]
-    - certifi [required: &gt;=2017.4.17, installed: 2018.4.16]
+  - PyYAML [required: Any, installed: 3.13]
+  - requests [required: Any, installed: 2.20.0]
+    - certifi [required: &gt;=2017.4.17, installed: 2018.10.15]
     - chardet [required: &gt;=3.0.2,&lt;3.1.0, installed: 3.0.4]
-    - idna [required: &gt;=2.5,&lt;2.7, installed: 2.6]
-    - urllib3 [required: &lt;1.23,&gt;=1.21.1, installed: 1.22]
+    - idna [required: &gt;=2.5,&lt;2.8, installed: 2.7]
+    - urllib3 [required: &gt;=1.21.1,&lt;1.25, installed: 1.24]
   - requests-toolbelt [required: Any, installed: 0.8.0]
-    - requests [required: &gt;=2.0.1,&lt;3.0.0, installed: 2.18.4]
-      - certifi [required: &gt;=2017.4.17, installed: 2018.4.16]
+    - requests [required: &gt;=2.0.1,&lt;3.0.0, installed: 2.20.0]
+      - certifi [required: &gt;=2017.4.17, installed: 2018.10.15]
       - chardet [required: &gt;=3.0.2,&lt;3.1.0, installed: 3.0.4]
-      - idna [required: &gt;=2.5,&lt;2.7, installed: 2.6]
-      - urllib3 [required: &lt;1.23,&gt;=1.21.1, installed: 1.22]
+      - idna [required: &gt;=2.5,&lt;2.8, installed: 2.7]
+      - urllib3 [required: &gt;=1.21.1,&lt;1.25, installed: 1.24]
 </pre></div>
 
 

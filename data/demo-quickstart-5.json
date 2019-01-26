@@ -2,38 +2,31 @@
     {
         "config": {
             "name": "testcase description",
-            "variables": [
-                {"device_sn": "${gen_random_string(15)}"},
-                {"user_id": 1000}
-            ],
-            "request": {
-                "base_url": "http://127.0.0.1:5000",
-                "headers": {
-                    "User-Agent": "python-requests/2.18.4",
-                    "device_sn": "$device_sn",
-                    "Content-Type": "application/json"
-                }
+            "base_url": "http://127.0.0.1:5000",
+            "variables": {
+                "device_sn": "FwgRiO7CNA50DSU"
             }
         }
     },
     {
         "test": {
             "name": "/api/get-token",
-            "variables": [
-                {"user_agent": "iOS/10.3"},
-                {"os_platform": "ios"},
-                {"app_version": "2.8.6"}
-            ],
+            "variables": {
+                "os_platform": "ios",
+                "app_version": "2.8.6"
+            },
             "request": {
                 "url": "/api/get-token",
-                "headers": {
-                    "user_agent": "$user_agent",
-                    "os_platform": "$os_platform",
-                    "app_version": "$app_version"
-                },
                 "method": "POST",
+                "headers": {
+                    "User-Agent": "python-requests/2.18.4",
+                    "device_sn": "$device_sn",
+                    "os_platform": "$os_platform",
+                    "app_version": "$app_version",
+                    "Content-Type": "application/json"
+                },
                 "json": {
-                    "sign": "${get_sign($user_agent, $device_sn, $os_platform, $app_version)}"
+                    "sign": "9c0c7e51c91ae963c833a4ccbab8d683c4a90c98"
                 }
             },
             "extract": [
@@ -49,13 +42,22 @@
     {
         "test": {
             "name": "/api/users/$user_id",
+            "variables": {
+                "user_id": "1000"
+            },
             "request": {
                 "url": "/api/users/$user_id",
-                "headers": {
-                    "token": "$token"
-                },
                 "method": "POST",
-                "json": {"name": "user1", "password": "123456"}
+                "headers": {
+                    "User-Agent": "python-requests/2.18.4",
+                    "device_sn": "$device_sn",
+                    "token": "$token",
+                    "Content-Type": "application/json"
+                },
+                "json": {
+                    "name": "user1",
+                    "password": "123456"
+                }
             },
             "validate": [
                 {"eq": ["status_code", 201]},
