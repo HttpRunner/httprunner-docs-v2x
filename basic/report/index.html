@@ -704,25 +704,29 @@
                 <p>使用 HttpRunner 执行完自动化测试后，会在当前路径的 reports 目录下生成一份 HTML 格式的测试报告。</p>
 <h2 id="_1">默认情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>默认情况下，生成的测试报告文件会位于项目根目录的 reports 文件夹中，文件名称为测试开始的时间戳。</p>
-<div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-2.yml
+<div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-6.yml
+INFO     Start to run testcase: testcase description
 /api/get-token
 INFO     POST http://127.0.0.1:5000/api/get-token
-INFO     status_code: <span class="m">200</span>, response_time: <span class="m">24</span> ms, response_length: <span class="m">46</span> bytes
+INFO     status_code: <span class="m">200</span>, response_time<span class="o">(</span>ms<span class="o">)</span>: <span class="m">10</span>.05 ms, response_length: <span class="m">46</span> bytes
+
 .
-/api/users/1000
-INFO     POST http://127.0.0.1:5000/api/users/1000
-INFO     status_code: <span class="m">201</span>, response_time: <span class="m">3</span> ms, response_length: <span class="m">54</span> bytes
+/api/users/1548561170497
+INFO     POST http://127.0.0.1:5000/api/users/1548561170497
+INFO     status_code: <span class="m">201</span>, response_time<span class="o">(</span>ms<span class="o">)</span>: <span class="m">2</span>.88 ms, response_length: <span class="m">54</span> bytes
+
 .
 
 ----------------------------------------------------------------------
-Ran <span class="m">2</span> tests in <span class="m">0</span>.031s
+Ran <span class="m">2</span> tests in <span class="m">0</span>.034s
 
 OK
 INFO     Start to render Html report ...
-INFO     Generated Html report: reports/1532078874.html
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/reports/1548561170.html
 </pre></div>
 
 
+<p>点击查看<a href="/data/reports/1548561170.html">测试报告</a>。</p>
 <h2 id="_2">默认报告样式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在 HttpRunner 中自带了一个 Jinja2 格式的报告模版，默认情况下，生成的报告样式均基于该模版（<a href="https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/report_template.html">httprunner/templates/default_report_template.html</a>）。</p>
 <p>测试报告形式如下：</p>
@@ -734,6 +738,7 @@ INFO     Generated Html report: reports/1532078874.html
 <img alt="" src="/images/report-demo-quickstart-1-log2.jpg" /></p>
 <p>若测试用例运行不成功（failed/error/skipped），则在该测试用例的 detail 中会出现 traceback 按钮，点击该按钮后，会在弹出框中展示失败的堆栈日志，或者 skipped 的原因。</p>
 <p><img alt="" src="/images/report-demo-quickstart-1-traceback.jpg" /></p>
+<p>点击查看<a href="/data/reports/1548561464.html">测试报告</a>。</p>
 <h2 id="_3">自定义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>除了默认的报告样式，HttpRunner 还支持使用自定义的报告模板。</p>
 <h3 id="jinja2">编写自定义模板（Jinja2格式）<a class="headerlink" href="#jinja2" title="Permanent link">&para;</a></h3>
