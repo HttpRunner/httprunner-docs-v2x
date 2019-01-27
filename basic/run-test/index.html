@@ -663,14 +663,13 @@
                 
                 <p>HttpRunner 在命令行中启动测试时，通过指定参数，可实现丰富的测试特性控制。</p>
 <div class="codehilite"><pre><span></span>$ hrun -h
-usage: main-debug.py [-h] [-V] [--log-level LOG_LEVEL] [--log-file LOG_FILE]
-                     [--dot-env-path DOT_ENV_PATH]
-                     [--report-template REPORT_TEMPLATE]
-                     [--report-dir REPORT_DIR] [--failfast] [--save-tests]
-                     [--startproject STARTPROJECT]
-                     [--validate [VALIDATE [VALIDATE ...]]]
-                     [--prettify [PRETTIFY [PRETTIFY ...]]]
-                     [testcase_paths [testcase_paths ...]]
+usage: hrun [-h] [-V] [--log-level LOG_LEVEL] [--log-file LOG_FILE]
+            [--dot-env-path DOT_ENV_PATH] [--report-template REPORT_TEMPLATE]
+            [--report-dir REPORT_DIR] [--failfast] [--save-tests]
+            [--startproject STARTPROJECT]
+            [--validate [VALIDATE [VALIDATE ...]]]
+            [--prettify [PRETTIFY [PRETTIFY ...]]]
+            [testcase_paths [testcase_paths ...]]
 
 One-stop solution for HTTP(S) testing.
 
@@ -713,11 +712,6 @@ optional arguments:
 </pre></div>
 
 
-<p>使用 hrun 命令外加多个测试用例文件（文件夹）的路径，即可依次运行多个测试用例（用例集），并分别生成对应的测试报告文件：</p>
-<div class="codehilite"><pre><span></span>$ hrun filepath1/testcase1.yml filefolder2/
-</pre></div>
-
-
 <h2 id="failfast">failfast<a class="headerlink" href="#failfast" title="Permanent link">&para;</a></h2>
 <p>默认情况下，HttpRunner 会运行指定用例集中的所有测试用例，并统计测试结果。</p>
 <blockquote>
@@ -730,166 +724,149 @@ optional arguments:
 
 <h2 id="_2">日志级别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
-<div class="codehilite"><pre><span></span>$ hrun tests/httpbin/hooks.yml
-INFO     Loading environment variables from tests/.env
-INFO     Start to run testcase: basic test with httpbin
-headers
-INFO     GET http://httpbin.org:80/headers
-INFO     status_code: 200, response_time(ms): 491.48 ms, response_length: 185 bytes
+<div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-6.json
+INFO     Start to run testcase: testcase description
+/api/get-token
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time(ms): 9.08 ms, response_length: 46 bytes
+
 .
-alter response
-INFO     GET http://httpbin.org:80/headers
-INFO     status_code: 200, response_time(ms): 248.41 ms, response_length: 185 bytes
+/api/users/1548560655759
+INFO     POST http://127.0.0.1:5000/api/users/1548560655759
+INFO     status_code: 201, response_time(ms): 2.89 ms, response_length: 54 bytes
+
 .
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0.845s
+Ran 2 tests in 0.019s
 
 OK
 INFO     Start to render Html report ...
-INFO     Generated Html report: reports/1543827143.html
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/reports/1548560655.html
 </pre></div>
 
 
 <p>若需要查看到更详尽的信息，例如请求的参数和响应的详细内容，可以将日志级别设置为<code>DEBUG</code>，即在命令中添加<code>--log-level debug</code>。</p>
-<div class="codehilite"><pre><span></span>$ hrun tests/httpbin/hooks.yml --log-level debug
-INFO     Loading environment variables from tests/.env
-DEBUG    Set OS environment variable: UserName
-DEBUG    Set OS environment variable: Password
-DEBUG    Set OS environment variable: PROJECT_KEY
-INFO     Start to run testcase: basic test with httpbin
-headers
-DEBUG    call setup hook actions.
-DEBUG    call hook function: ${setup_hook_prepare_kwargs($request)}
-DEBUG    call hook function: ${setup_hook_add_kwargs($request)}
-DEBUG    call hook function: ${setup_hook_remove_kwargs($request)}
-INFO     GET http://httpbin.org:80/headers
-DEBUG    request kwargs(raw): {&#39;verify&#39;: True}
+<div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-6.json --log-level debug
+INFO     Start to run testcase: testcase description
+/api/get-token
+INFO     POST http://127.0.0.1:5000/api/get-token
+DEBUG    request kwargs(raw): {&#39;headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;device_sn&#39;: &#39;W5ACRDytKRQJPhC&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.6&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;2e7c3b5d560a1c8a859edcb9c8b0d3f8349abeff&#39;}, &#39;verify&#39;: True}
 DEBUG    processed request:
-&gt; GET http://httpbin.org:80/headers
-&gt; kwargs: {&#39;verify&#39;: True, &#39;timeout&#39;: 120}
+&gt; POST http://127.0.0.1:5000/api/get-token
+&gt; kwargs: {&#39;headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;device_sn&#39;: &#39;W5ACRDytKRQJPhC&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.6&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;2e7c3b5d560a1c8a859edcb9c8b0d3f8349abeff&#39;}, &#39;verify&#39;: True, &#39;timeout&#39;: 120}
 DEBUG
 ================== request details ==================
-url              : &#39;http://httpbin.org:80/headers&#39;
-method           : &#39;GET&#39;
-headers          : {&#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
-start_timestamp  : 1543827400.7875352
-verify           : True
+url              : &#39;http://127.0.0.1:5000/api/get-token&#39;
+method           : &#39;POST&#39;
+headers          : {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;device_sn&#39;: &#39;W5ACRDytKRQJPhC&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.6&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;52&#39;}
+body             : b&#39;{&quot;sign&quot;: &quot;2e7c3b5d560a1c8a859edcb9c8b0d3f8349abeff&quot;}&#39;
 
 DEBUG
 ================== response details ==================
-status_code      : 200
-headers          : {&#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Server&#39;: &#39;gunicorn/19.9.0&#39;, &#39;Date&#39;: &#39;Mon, 03 Dec 2018 08:56:41 GMT&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;185&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;, &#39;Via&#39;: &#39;1.1 vegur&#39;}
-content_size     : 185
-response_time_ms : 528.63
-elapsed_ms       : 520.948
-encoding         : None
-content_type     : &#39;application/json&#39;
 ok               : True
-url              : &#39;http://httpbin.org:80/headers&#39;
+url              : &#39;http://127.0.0.1:5000/api/get-token&#39;
+status_code      : 200
 reason           : &#39;OK&#39;
 cookies          : {}
-json             : {&#39;headers&#39;: {&#39;Accept&#39;: &#39;*/*&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Connection&#39;: &#39;close&#39;, &#39;Host&#39;: &#39;httpbin.org&#39;, &#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;}}
+encoding         : None
+headers          : {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.5+&#39;, &#39;Date&#39;: &#39;Sun, 27 Jan 2019 03:45:16 GMT&#39;}
+content_type     : &#39;application/json&#39;
+json             : {&#39;success&#39;: True, &#39;token&#39;: &#39;o6uakmubLrCbpRRS&#39;}
 
-INFO     status_code: 200, response_time(ms): 528.63 ms, response_length: 185 bytes
+INFO     status_code: 200, response_time(ms): 9.28 ms, response_length: 46 bytes
 
-DEBUG    call teardown hook actions.
-DEBUG    call hook function: ${teardown_hook_sleep_N_secs($response, 1)}
+DEBUG    start to extract from response object.
+DEBUG    extract: content.token =&gt; o6uakmubLrCbpRRS
 DEBUG    start to validate.
 DEBUG    extract: status_code   =&gt; 200
 DEBUG    validate: status_code equals 200(int)  ==&gt; pass
-DEBUG    extract: content.headers.Host  =&gt; httpbin.org
-DEBUG    validate: content.headers.Host contained_by http://httpbin.org:80(str) ==&gt; pass
+DEBUG    extract: headers.Content-Type  =&gt; application/json
+DEBUG    validate: headers.Content-Type equals application/json(str)    ==&gt; pass
+DEBUG    extract: content.success   =&gt; True
+DEBUG    validate: content.success equals True(bool)    ==&gt; pass
 .
-alter response
-DEBUG    call setup hook actions.
-DEBUG    call hook function: ${setup_hook_prepare_kwargs($request)}
-INFO     GET http://httpbin.org:80/headers
-DEBUG    request kwargs(raw): {&#39;verify&#39;: True}
+/api/users/1548560716736
+INFO     POST http://127.0.0.1:5000/api/users/1548560716736
+DEBUG    request kwargs(raw): {&#39;headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;device_sn&#39;: &#39;W5ACRDytKRQJPhC&#39;, &#39;token&#39;: &#39;o6uakmubLrCbpRRS&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;}, &#39;json&#39;: {&#39;name&#39;: &#39;user1&#39;, &#39;password&#39;: &#39;123456&#39;}, &#39;verify&#39;: True}
 DEBUG    processed request:
-&gt; GET http://httpbin.org:80/headers
-&gt; kwargs: {&#39;verify&#39;: True, &#39;timeout&#39;: 120}
+&gt; POST http://127.0.0.1:5000/api/users/1548560716736
+&gt; kwargs: {&#39;headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;device_sn&#39;: &#39;W5ACRDytKRQJPhC&#39;, &#39;token&#39;: &#39;o6uakmubLrCbpRRS&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;}, &#39;json&#39;: {&#39;name&#39;: &#39;user1&#39;, &#39;password&#39;: &#39;123456&#39;}, &#39;verify&#39;: True, &#39;timeout&#39;: 120}
 DEBUG
 ================== request details ==================
-url              : &#39;http://httpbin.org:80/headers&#39;
-method           : &#39;GET&#39;
-headers          : {&#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
-start_timestamp  : 1543827401.4223402
-verify           : True
+url              : &#39;http://127.0.0.1:5000/api/users/1548560716736&#39;
+method           : &#39;POST&#39;
+headers          : {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;device_sn&#39;: &#39;W5ACRDytKRQJPhC&#39;, &#39;token&#39;: &#39;o6uakmubLrCbpRRS&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;39&#39;}
+body             : b&#39;{&quot;name&quot;: &quot;user1&quot;, &quot;password&quot;: &quot;123456&quot;}&#39;
 
 DEBUG
 ================== response details ==================
-status_code      : 200
-headers          : {&#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Server&#39;: &#39;gunicorn/19.9.0&#39;, &#39;Date&#39;: &#39;Mon, 03 Dec 2018 08:56:41 GMT&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;185&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;, &#39;Via&#39;: &#39;1.1 vegur&#39;}
-content_size     : 185
-response_time_ms : 269.15
-elapsed_ms       : 267.673
-encoding         : None
-content_type     : &#39;application/json&#39;
 ok               : True
-url              : &#39;http://httpbin.org:80/headers&#39;
-reason           : &#39;OK&#39;
+url              : &#39;http://127.0.0.1:5000/api/users/1548560716736&#39;
+status_code      : 201
+reason           : &#39;CREATED&#39;
 cookies          : {}
-json             : {&#39;headers&#39;: {&#39;Accept&#39;: &#39;*/*&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Connection&#39;: &#39;close&#39;, &#39;Host&#39;: &#39;httpbin.org&#39;, &#39;User-Agent&#39;: &#39;python-requests/2.20.0&#39;}}
+encoding         : None
+headers          : {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;54&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.5+&#39;, &#39;Date&#39;: &#39;Sun, 27 Jan 2019 03:45:16 GMT&#39;}
+content_type     : &#39;application/json&#39;
+json             : {&#39;success&#39;: True, &#39;msg&#39;: &#39;user created successfully.&#39;}
 
-INFO     status_code: 200, response_time(ms): 269.15 ms, response_length: 185 bytes
+INFO     status_code: 201, response_time(ms): 2.77 ms, response_length: 54 bytes
 
-DEBUG    call teardown hook actions.
-DEBUG    call hook function: ${alter_response($response)}
 DEBUG    start to validate.
-DEBUG    extract: status_code   =&gt; 500
-DEBUG    validate: status_code equals 500(int)  ==&gt; pass
-DEBUG    extract: headers.content-type  =&gt; html/text
-DEBUG    validate: headers.content-type equals html/text(str) ==&gt; pass
-DEBUG    extract: json.headers.Host =&gt; 127.0.0.1:8888
-DEBUG    validate: json.headers.Host equals 127.0.0.1:8888(str) ==&gt; pass
-DEBUG    extract: content.headers.Host  =&gt; 127.0.0.1:8888
-DEBUG    validate: content.headers.Host equals 127.0.0.1:8888(str)      ==&gt; pass
-DEBUG    extract: text.headers.Host =&gt; 127.0.0.1:8888
-DEBUG    validate: text.headers.Host equals 127.0.0.1:8888(str) ==&gt; pass
+DEBUG    extract: status_code   =&gt; 201
+DEBUG    validate: status_code equals 201(int)  ==&gt; pass
+DEBUG    extract: headers.Content-Type  =&gt; application/json
+DEBUG    validate: headers.Content-Type equals application/json(str)    ==&gt; pass
+DEBUG    extract: content.success   =&gt; True
+DEBUG    validate: content.success equals True(bool)    ==&gt; pass
+DEBUG    extract: content.msg   =&gt; user created successfully.
+DEBUG    validate: content.msg equals user created successfully.(str)   ==&gt; pass
 .
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0.908s
+Ran 2 tests in 0.022s
 
 OK
-
 DEBUG    No html report template specified, use default.
 INFO     Start to render Html report ...
-INFO     Generated Html report: reports/1543827400.html
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/reports/1548560716.html
 </pre></div>
 
 
 <h2 id="_3">保存详细过程数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>为了方便定位问题，运行测试时可指定 <code>--save-tests</code> 参数，即可将运行过程的中间数据保存为日志文件。</p>
-<p>日志文件将保存在项目根目录的 <code>logs</code> 文件夹中，生成的文件有如下三个（XXX为测试用例名称）：</p>
-<ul>
-<li><code>XXX.loaded.json</code>：测试用例加载后的数据结构内容，加载包括测试用例文件（YAML/JSON）、debugtalk.py、.env 等所有项目文件</li>
-<li><code>XXX.parsed.json</code>：测试用例解析后的数据结构内容，解析内容包括测试用例引用（API/testcase）、变量计算和替换、base_url 拼接等</li>
-<li><code>XXX.summary.json</code>：测试报告生成前的数据结构内容</li>
-</ul>
-<div class="codehilite"><pre><span></span>hrun tests/httpbin/hooks.yml --save-tests
-INFO     Loading environment variables from tests/.env
-dump file: tests/logs/hooks.loaded.json
-dump file: tests/logs/hooks.parsed.json
-INFO     Start to run testcase: basic test with httpbin
-headers
-INFO     GET http://httpbin.org:80/headers
-INFO     status_code: 200, response_time(ms): 589.45 ms, response_length: 185 bytes
+<div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-6.json --save-tests
+dump file: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/docs/data/logs/demo-quickstart-6.loaded.json
+dump file: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/docs/data/logs/demo-quickstart-6.parsed.json
+INFO     Start to run testcase: testcase description
+/api/get-token
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time(ms): 11.42 ms, response_length: 46 bytes
+
 .
-alter response
-INFO     GET http://httpbin.org:80/headers
-INFO     status_code: 200, response_time(ms): 313.6 ms, response_length: 185 bytes
+/api/users/1548560768589
+INFO     POST http://127.0.0.1:5000/api/users/1548560768589
+INFO     status_code: 201, response_time(ms): 2.8 ms, response_length: 54 bytes
+
 .
 
 ----------------------------------------------------------------------
-Ran 2 tests in 1.009s
+Ran 2 tests in 0.028s
 
 OK
-dump file: tests/logs/hooks.summary.json
+dump file: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/docs/data/logs/demo-quickstart-6.summary.json
 INFO     Start to render Html report ...
-INFO     Generated Html report: reports/1543827620.html
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/httprunner-docs-v2x/reports/1548560768.html
 </pre></div>
+
+
+<p>日志文件将保存在项目根目录的 <code>logs</code> 文件夹中，生成的文件有如下三个（XXX为测试用例名称）：</p>
+<ul>
+<li><code>XXX.loaded.json</code>：测试用例加载后的数据结构内容，加载包括测试用例文件（YAML/JSON）、debugtalk.py、.env 等所有项目文件，例如 <a href="/data/logs/demo-quickstart-6.loaded.json"><code>demo-quickstart-6.loaded.json</code></a></li>
+<li><code>XXX.parsed.json</code>：测试用例解析后的数据结构内容，解析内容包括测试用例引用（API/testcase）、变量计算和替换、base_url 拼接等，例如 <a href="/data/logs/demo-quickstart-6.parsed.json"><code>demo-quickstart-6.parsed.json</code></a></li>
+<li><code>XXX.summary.json</code>：测试报告生成前的数据结构内容，例如 <a href="/data/logs/demo-quickstart-6.summary.json"><code>demo-quickstart-6.summary.json</code></a></li>
+</ul>
                 
                   
                 

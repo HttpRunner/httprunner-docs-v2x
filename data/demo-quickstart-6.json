@@ -43,7 +43,7 @@
         "test": {
             "name": "/api/users/$user_id",
             "variables": {
-                "user_id": "1000"
+                "user_id": "${gen_user_id()}"
             },
             "request": {
                 "url": "/api/users/$user_id",

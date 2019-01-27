@@ -2,6 +2,7 @@ import hashlib
 import hmac
 import random
 import string
+import time
 
 SECRET_KEY = "DebugTalk"
 
@@ -19,6 +20,9 @@ def get_sign(*args):
     sign_key = SECRET_KEY.encode('ascii')
     sign = hmac.new(sign_key, content, hashlib.sha1).hexdigest()
     return sign
+
+def gen_user_id():
+    return int(time.time() * 1000)
 
 def get_user_id():
     return [
