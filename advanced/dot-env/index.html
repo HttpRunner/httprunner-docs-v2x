@@ -468,10 +468,30 @@
     设置环境变量
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="在终端中预设环境变量" class="md-nav__link">
+    在终端中预设环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" title="通过 .env 文件设置环境变量" class="md-nav__link">
+    通过 .env 文件设置环境变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="引用环境变量" class="md-nav__link">
+  <a href="#_4" title="引用环境变量" class="md-nav__link">
     引用环境变量
   </a>
   
@@ -619,10 +639,30 @@
     设置环境变量
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="在终端中预设环境变量" class="md-nav__link">
+    在终端中预设环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" title="通过 .env 文件设置环境变量" class="md-nav__link">
+    通过 .env 文件设置环境变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="引用环境变量" class="md-nav__link">
+  <a href="#_4" title="引用环境变量" class="md-nav__link">
     引用环境变量
   </a>
   
@@ -655,6 +695,7 @@
 <li>存储敏感数据（从<a href="/advanced/security/">信息安全</a>的角度出发）</li>
 </ul>
 <h2 id="_2">设置环境变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">在终端中预设环境变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>使用环境变量之前，需要先在系统中设置环境变量名称和值，传统的方式为使用 export 命令（Windows系统中使用 set 命令）：</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">UserName</span><span class="o">=</span>admin
 $ <span class="nb">echo</span> <span class="nv">$UserName</span>
@@ -673,8 +714,9 @@ $ <span class="nb">echo</span> <span class="nv">$Password</span>
 </pre></div>
 
 
-<p>除了这种方式，HttpRunner 还借鉴了 pipenv <a href="https://docs.pipenv.org/advanced/#automatic-loading-of-env">加载<code>.env</code>的方式</a>。</p>
-<p>默认情况下，在自动化测试项目的根目录中，创建<code>.env</code>文件，并将敏感数据信息放置到其中，存储采用<code>name=value</code>的格式：</p>
+<h3 id="env">通过 .env 文件设置环境变量<a class="headerlink" href="#env" title="Permanent link">&para;</a></h3>
+<p>除了这种方式，HttpRunner 还借鉴了 pipenv <a href="https://docs.pipenv.org/advanced/#automatic-loading-of-env">加载 <code>.env</code> 的方式</a>。</p>
+<p>默认情况下，在自动化测试项目的根目录中，创建 <code>.env</code> 文件，并将敏感数据信息放置到其中，存储采用 <code>name=value</code> 的格式：</p>
 <div class="codehilite"><pre><span></span>$ cat .env
 <span class="nv">UserName</span><span class="o">=</span>admin
 <span class="nv">Password</span><span class="o">=</span><span class="m">123456</span>
@@ -682,9 +724,9 @@ $ <span class="nb">echo</span> <span class="nv">$Password</span>
 </pre></div>
 
 
-<p>同时，<code>.env</code>文件不应该添加到代码仓库中，建议将<code>.env</code>加入到<code>.gitignore</code>中。</p>
-<p>HttpRunner 运行时，会自动将<code>.env</code>文件中的内容加载到运行时（RunTime）的环境变量中，然后在运行时中就可以对环境变量进行读取了。</p>
-<p>若需加载不位于自动化项目根目录中的<code>.env</code>，或者其它名称的<code>.env</code>文件（例如<code>production.env</code>），可以采用<code>--dot-env-path</code>参数指定文件路径：</p>
+<p>同时，<code>.env</code> 文件不应该添加到代码仓库中，建议将 <code>.env</code> 加入到 <code>.gitignore</code> 中。</p>
+<p>HttpRunner 运行时，会自动将 <code>.env</code> 文件中的内容加载到运行时（RunTime）的环境变量中，然后在运行时中就可以对环境变量进行读取了。</p>
+<p>若需加载不位于自动化项目根目录中的 <code>.env</code>，或者其它名称的 <code>.env</code> 文件（例如 <code>production.env</code>），可以采用 <code>--dot-env-path</code> 参数指定文件路径：</p>
 <div class="codehilite"><pre><span></span>$ hrun /path/to/testcase.yml --dot-env-path /path/to/.env --log-level debug
 INFO     Loading environment variables from /path/to/.env
 DEBUG    Loaded variable: UserName
@@ -694,17 +736,8 @@ DEBUG    Loaded variable: PROJECT_KEY
 </pre></div>
 
 
-<h2 id="_3">引用环境变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在 HttpRunner 运行时，读取环境变量的逻辑需要在 <code>debugtalk.py</code> 文件中实现，通过 <code>os.environ</code> 获取指定的环境变量数据。</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">UserName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;UserName&quot;</span><span class="p">]</span>           <span class="c1"># admin</span>
-<span class="n">Password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;Password&quot;</span><span class="p">]</span>           <span class="c1"># 123456</span>
-<span class="n">PROJECT_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PROJECT_KEY&quot;</span><span class="p">])</span>    <span class="c1"># ABCDEFGH</span>
-</pre></div>
-
-
-<p>然后，在 YAML/JSON 格式的测试用例中，就可以通过<code>$var</code>的方式引用环境变量的值了。</p>
+<h2 id="_4">引用环境变量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>在 HttpRunner 中内置了函数 <code>environ</code>（简称 <code>ENV</code>），可用于在 YAML/JSON 脚本中直接引用环境变量。</p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">login</span>
     <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
@@ -713,16 +746,18 @@ DEBUG    Loaded variable: PROJECT_KEY
         <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
             <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
         <span class="l l-Scalar l-Scalar-Plain">json</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$UserName</span>
-            <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$Password</span>
+            <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${ENV(UserName)}</span>
+            <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${ENV(Password)}</span>
         <span class="l l-Scalar l-Scalar-Plain">validate</span><span class="p p-Indicator">:</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">status_code</span><span class="p p-Indicator">,</span> <span class="nv">200</span><span class="p p-Indicator">]</span>
 </pre></div>
 
 
-<p>或者借助函数对环境变量进行读取和处理后，再进行引用。</p>
-<p>例如，若发起请求的密码需要先与密钥进行拼接并生成MD5，那么就可以在 <code>debugtalk.py</code> 文件中实现如下函数：</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_encrypt_password</span><span class="p">():</span>
+<p>若还需对读取的环境变量做进一步处理，则可以在 <code>debugtalk.py</code> 通过 Python 内置的函数 <code>os.environ</code> 对环境变量进行引用，然后再实现处理逻辑。</p>
+<p>例如，若发起请求的密码需要先与密钥进行拼接并生成 MD5，那么就可以在 <code>debugtalk.py</code> 文件中实现如下函数：</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">get_encrypt_password</span><span class="p">():</span>
     <span class="n">raw_passwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;Password&quot;</span><span class="p">]</span>
     <span class="n">PROJECT_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PROJECT_KEY&quot;</span><span class="p">])</span>
     <span class="n">password</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_passwd</span> <span class="o">+</span> <span class="n">PROJECT_KEY</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
@@ -739,7 +774,7 @@ DEBUG    Loaded variable: PROJECT_KEY
         <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
             <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
         <span class="l l-Scalar l-Scalar-Plain">json</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$UserName</span>
+            <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${ENV(UserName)}</span>
             <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${get_encrypt_password()}</span>
         <span class="l l-Scalar l-Scalar-Plain">validate</span><span class="p p-Indicator">:</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">status_code</span><span class="p p-Indicator">,</span> <span class="nv">200</span><span class="p p-Indicator">]</span>
