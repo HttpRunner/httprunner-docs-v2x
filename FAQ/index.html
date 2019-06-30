@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -14,7 +14,7 @@
       
       
       
-        <meta name="author" content="Leo Lee">
+        <meta name="author" content="debugtalk">
       
       
         <meta name="lang:clipboard.copy" content="复制">
@@ -36,17 +36,17 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
     
     
       
-        <title>常见问题 - HttpRunner V2.x 中文使用文档</title>
+        <title>FAQ - HttpRunner V2.x 中文使用文档</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.01803549.css">
       
       
         
@@ -55,16 +55,45 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-114587036-2", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -77,24 +106,7 @@
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
-        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
-        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
-        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
-        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
-        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
-        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
-        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
-        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
-        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
-        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
-        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
-        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
-        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
-        99.5z" />
-</svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
         
       </defs>
     </svg>
@@ -102,7 +114,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../#_1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -123,22 +135,21 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                HttpRunner V2.x 中文使用文档
-              </span>
-              <span class="md-header-nav__topic">
-                常见问题
-              </span>
-            
+            <span class="md-header-nav__topic">
+              HttpRunner V2.x 中文使用文档
+            </span>
+            <span class="md-header-nav__topic">
+              
+                FAQ
+              
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -161,7 +172,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -172,20 +182,18 @@
 
   
 
-
-  <a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      HttpRunner
+<a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    HttpRunner
+  </div>
+</a>
           </div>
         </div>
       
@@ -221,20 +229,18 @@
 
   
 
-
-  <a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      HttpRunner
+<a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    HttpRunner
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -248,66 +254,6 @@
     <a href=".." title="介绍" class="md-nav__link">
       介绍
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      核心概念
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        核心概念
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept/architecture/" title="架构图" class="md-nav__link">
-      架构图
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept/project-structure/" title="项目文件组织" class="md-nav__link">
-      项目文件组织
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../concept/testcase-structure/" title="测试用例组织" class="md-nav__link">
-      测试用例组织
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -342,14 +288,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-5">
-      基础功能
+    <label class="md-nav__link" for="nav-4">
+      测试准备
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        基础功能
+      <label class="md-nav__title" for="nav-4">
+        测试准备
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -360,7 +306,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../basic/record/" title="录制生成用例" class="md-nav__link">
+    <a href="../prepare/record/" title="录制生成用例" class="md-nav__link">
       录制生成用例
     </a>
   </li>
@@ -372,8 +318,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../basic/run-test/" title="运行测试" class="md-nav__link">
-      运行测试
+    <a href="../prepare/project-structure/" title="项目文件组织" class="md-nav__link">
+      项目文件组织
     </a>
   </li>
 
@@ -384,8 +330,140 @@
 
 
   <li class="md-nav__item">
-    <a href="../basic/report/" title="测试报告" class="md-nav__link">
+    <a href="../prepare/testcase-structure/" title="测试用例组织" class="md-nav__link">
+      测试用例组织
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prepare/request-hook/" title="hook机制" class="md-nav__link">
+      hook机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prepare/dot-env/" title="环境变量" class="md-nav__link">
+      环境变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prepare/testcase-layer/" title="测试用例分层" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prepare/parameters/" title="参数化数据驱动" class="md-nav__link">
+      参数化数据驱动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prepare/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
+      Validate & Prettify
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prepare/security/" title="信息安全" class="md-nav__link">
+      信息安全
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      测试执行
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        测试执行
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run-tests/cli/" title="运行测试(CLI)" class="md-nav__link">
+      运行测试(CLI)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run-tests/report/" title="测试报告" class="md-nav__link">
       测试报告
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run-tests/load-test/" title="性能测试" class="md-nav__link">
+      性能测试
     </a>
   </li>
 
@@ -405,11 +483,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
-      高级特性
+      开发扩展
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        高级特性
+        开发扩展
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -420,8 +498,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../advanced/request-hook/" title="hook机制" class="md-nav__link">
-      hook机制
+    <a href="../concept/architecture.md" title="Pipline" class="md-nav__link">
+      Pipline
     </a>
   </li>
 
@@ -432,86 +510,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../advanced/dot-env/" title="环境变量" class="md-nav__link">
-      环境变量
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../advanced/parameters/" title="参数化数据驱动" class="md-nav__link">
-      参数化数据驱动
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../advanced/testcase-layer/" title="测试用例分层" class="md-nav__link">
-      测试用例分层
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../advanced/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
-      Validate & Prettify
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../advanced/security/" title="信息安全" class="md-nav__link">
-      信息安全
+    <a href="../development.md" title="基础库调用" class="md-nav__link">
+      基础库调用
     </a>
   </li>
 
         
       </ul>
     </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../load-test/" title="性能测试" class="md-nav__link">
-      性能测试
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../development/" title="开发扩展" class="md-nav__link">
-      开发扩展
-    </a>
   </li>
 
     
@@ -529,10 +535,103 @@
       
     
     
-    <a href="./" title="常见问题" class="md-nav__link md-nav__link--active">
-      常见问题
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        FAQ
+      </label>
+    
+    <a href="./" title="FAQ" class="md-nav__link md-nav__link--active">
+      FAQ
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#https" title="支持 https 吗" class="md-nav__link">
+    支持 https 吗
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postapplicationjsonapplicationx-www-form-urlencoded" title="post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？" class="md-nav__link">
+    post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="如何实现接口之间参数的关联？" class="md-nav__link">
+    如何实现接口之间参数的关联？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate" title="validate 自定义函数支持多参数" class="md-nav__link">
+    validate 自定义函数支持多参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？" class="md-nav__link">
+    为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      实践案例
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        实践案例
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/testerhome-login/" title="TesterHome 登录" class="md-nav__link">
+      TesterHome 登录
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -565,6 +664,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#https" title="支持 https 吗" class="md-nav__link">
+    支持 https 吗
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postapplicationjsonapplicationx-www-form-urlencoded" title="post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？" class="md-nav__link">
+    post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="如何实现接口之间参数的关联？" class="md-nav__link">
+    如何实现接口之间参数的关联？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate" title="validate 自定义函数支持多参数" class="md-nav__link">
+    validate 自定义函数支持多参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？" class="md-nav__link">
+    为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -577,6 +720,78 @@
                 
                 
                 <h1 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="https">支持 https 吗<a class="headerlink" href="#https" title="Permanent link">&para;</a></h2>
+<p>https://github.com/HttpRunner/HttpRunner/issues/15
+https://github.com/HttpRunner/HttpRunner/issues/39</p>
+<p>底层是完全复用的requests，所以只要requests支持的功能，这款框架都支持。另外，如果你测试的https网站没有证书，你可以采用 verify=False 来关闭校验。</p>
+<p>参考链接：http://docs.python-requests.org/en/master/api/#requests.request</p>
+<h2 id="postapplicationjsonapplicationx-www-form-urlencoded">post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？<a class="headerlink" href="#postapplicationjsonapplicationx-www-form-urlencoded" title="Permanent link">&para;</a></h2>
+<p>https://github.com/HttpRunner/HttpRunner/issues/17</p>
+<p>底层是完全复用的requests，所以只要requests支持的功能，这款框架都支持。</p>
+<p>参考链接：http://docs.python-requests.org/en/master/api/#requests.request</p>
+<h2 id="_2">如何实现接口之间参数的关联？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>https://github.com/HttpRunner/HttpRunner/issues/3</p>
+<p>登录过程中获取的token，可以在之后的testcase中使用</p>
+<p>这个功能是已经有了的。例如下面的形式，通过<code>extract_binds</code>将token提取出来并保存到<code>user_token</code>，然后后续的请求都可以直接用了。</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">test</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">login with email to get user token</span>
+    <span class="nt">request</span><span class="p">:</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/apis/apprest/v1/email_login</span>
+        <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
+        <span class="nt">headers</span><span class="p">:</span>
+            <span class="nt">Content-Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">application/x-www-form-urlencoded</span>
+        <span class="nt">data</span><span class="p">:</span>
+            <span class="nt">email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_email</span>
+            <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_passwd</span>
+    <span class="nt">extract_binds</span><span class="p">:</span>
+        <span class="nt">user_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">content.data.token</span>
+    <span class="nt">validators</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;status_code&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">200</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;headers.content-type&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;application/json;charset=UTF-8&quot;</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.code&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">0</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.message&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;ok&quot;</span><span class="p p-Indicator">}</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">test</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/users/user_id/home</span>
+    <span class="nt">request</span><span class="p">:</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/users/$user_id/home</span>
+        <span class="nt">params</span><span class="p">:</span>
+            <span class="nt">page</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">page_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
+            <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_token</span>
+        <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GET</span>
+    <span class="nt">validators</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;status_code&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">200</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;headers.content-type&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;application/json;</span><span class="nv"> </span><span class="s">charset=utf-8&quot;</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.status&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">0</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.status_msg&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;ok&quot;</span><span class="p p-Indicator">}</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.items&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">10</span><span class="p p-Indicator">,</span> <span class="s">&quot;comparator&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;len_gt&quot;</span><span class="p p-Indicator">}</span>
+</pre></div>
+
+
+<h2 id="validate">validate 自定义函数支持多参数<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h2>
+<p>https://github.com/HttpRunner/HttpRunner/issues/65</p>
+<p>validate终于支持自定义函数了~
+然而发现只能传入两个参数，一个是校验字段，一个是期望值。
+但是有时候业务逻辑比较复杂，需要从返回值中抽取多个字段，再经过自定义函数判断是否符合断言。
+比如，返回值中有start_time，end_time，断言是判断中间的时间差是否小于指定值。
+目前想到的办法就是正则匹配的时候把需要的参数都匹配进去，在自定义函数中实现字段抽取&amp;断言。
+这种方式不是很优雅。</p>
+<p>自定义校验函数的确是只能传入两个参数，但是通过灵活应用，同样能实现各种复杂的检测。
+就拿你列举的案例来说，你希望检查返回值中的start_time和end_time差值是否小于指定值，那么你在编写自定义校验函数的时候，就可以在第一个参数中传入完整的返回值，第二个参数传入指定值。
+然后在自定义校验函数中，先从完整的返回值中解析出start_time和end_time，然后再计算差值进行比较断言。</p>
+<p>def validate_time_interval(content, specified_time):
+    # 1、从返回结果中提取出start_time和end_time
+    start_time, end_time = parse(content)</p>
+<div class="codehilite"><pre><span></span># 2、进行比较断言
+assert end_time - start_time &lt; specified_time
+</pre></div>
+
+
+<h2 id="_3">为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>https://github.com/HttpRunner/HttpRunner/issues/60</p>
+<p>在同一个<code>JSON/YAML</code>文件里面，所有的testcase都是共用的一个<code>requests.Session</code>，所以session是能共用的。
+但需要注意的是，如果你将登录部分放置到了<code>debugtalk.py</code>中，那么就相当于同时初始化了两个<code>requests.Session</code>，就没法共享session了。</p>
                 
                   
                 
@@ -597,28 +812,28 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../development/" title="开发扩展" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../run-tests/load-test/" title="性能测试" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  后退
+                  上一页
                 </span>
-                开发扩展
+                性能测试
               </span>
             </div>
           </a>
         
         
-          <a href="../related-docs/" title="相关资料" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../examples/testerhome-login/" title="TesterHome 登录" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  前进
+                  下一页
                 </span>
-                相关资料
+                TesterHome 登录
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -644,24 +859,22 @@
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="http://debugtalk.com" class="md-footer-social__link fa fa-globe"></a>
+      <a href="https://debugtalk.com" class="md-footer-social__link fa fa-globe"></a>
     
       <a href="https://github.com/httprunner" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.583bbe55.js"></script>
+      <script src="../assets/javascripts/application.245445c6.js"></script>
       
         
         
@@ -672,10 +885,6 @@
           
             
               
-                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
               
             
           
@@ -685,11 +894,6 @@
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-114587036-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

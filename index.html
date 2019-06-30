@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -14,7 +14,7 @@
       
       
       
-        <meta name="author" content="Leo Lee">
+        <meta name="author" content="debugtalk">
       
       
         <meta name="lang:clipboard.copy" content="复制">
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
+      <link rel="stylesheet" href="assets/stylesheets/application.0284f74d.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.01803549.css">
       
       
         
@@ -55,16 +55,45 @@
       
     
     
-      <script src="assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-114587036-2", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -77,24 +106,7 @@
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
-        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
-        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
-        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
-        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
-        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
-        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
-        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
-        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
-        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
-        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
-        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
-        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
-        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
-        99.5z" />
-</svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
         
       </defs>
     </svg>
@@ -123,22 +135,21 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                HttpRunner V2.x 中文使用文档
-              </span>
-              <span class="md-header-nav__topic">
+            <span class="md-header-nav__topic">
+              HttpRunner V2.x 中文使用文档
+            </span>
+            <span class="md-header-nav__topic">
+              
                 介绍
-              </span>
-            
+              
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -161,7 +172,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -172,20 +182,18 @@
 
   
 
-
-  <a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      HttpRunner
+<a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    HttpRunner
+  </div>
+</a>
           </div>
         </div>
       
@@ -221,20 +229,18 @@
 
   
 
-
-  <a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      HttpRunner
+<a href="https://github.com/HttpRunner/HttpRunner" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    HttpRunner
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -304,66 +310,6 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      核心概念
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        核心概念
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="concept/architecture/" title="架构图" class="md-nav__link">
-      架构图
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="concept/project-structure/" title="项目文件组织" class="md-nav__link">
-      项目文件组织
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="concept/testcase-structure/" title="测试用例组织" class="md-nav__link">
-      测试用例组织
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item">
     <a href="Installation/" title="安装说明" class="md-nav__link">
       安装说明
@@ -390,14 +336,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-5">
-      基础功能
+    <label class="md-nav__link" for="nav-4">
+      测试准备
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        基础功能
+      <label class="md-nav__title" for="nav-4">
+        测试准备
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -408,7 +354,7 @@
 
 
   <li class="md-nav__item">
-    <a href="basic/record/" title="录制生成用例" class="md-nav__link">
+    <a href="prepare/record/" title="录制生成用例" class="md-nav__link">
       录制生成用例
     </a>
   </li>
@@ -420,8 +366,8 @@
 
 
   <li class="md-nav__item">
-    <a href="basic/run-test/" title="运行测试" class="md-nav__link">
-      运行测试
+    <a href="prepare/project-structure/" title="项目文件组织" class="md-nav__link">
+      项目文件组织
     </a>
   </li>
 
@@ -432,8 +378,140 @@
 
 
   <li class="md-nav__item">
-    <a href="basic/report/" title="测试报告" class="md-nav__link">
+    <a href="prepare/testcase-structure/" title="测试用例组织" class="md-nav__link">
+      测试用例组织
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prepare/request-hook/" title="hook机制" class="md-nav__link">
+      hook机制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prepare/dot-env/" title="环境变量" class="md-nav__link">
+      环境变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prepare/testcase-layer/" title="测试用例分层" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prepare/parameters/" title="参数化数据驱动" class="md-nav__link">
+      参数化数据驱动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prepare/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
+      Validate & Prettify
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prepare/security/" title="信息安全" class="md-nav__link">
+      信息安全
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      测试执行
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        测试执行
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="run-tests/cli/" title="运行测试(CLI)" class="md-nav__link">
+      运行测试(CLI)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="run-tests/report/" title="测试报告" class="md-nav__link">
       测试报告
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="run-tests/load-test/" title="性能测试" class="md-nav__link">
+      性能测试
     </a>
   </li>
 
@@ -453,11 +531,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
-      高级特性
+      开发扩展
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        高级特性
+        开发扩展
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -468,8 +546,8 @@
 
 
   <li class="md-nav__item">
-    <a href="advanced/request-hook/" title="hook机制" class="md-nav__link">
-      hook机制
+    <a href="concept/architecture.md" title="Pipline" class="md-nav__link">
+      Pipline
     </a>
   </li>
 
@@ -480,56 +558,8 @@
 
 
   <li class="md-nav__item">
-    <a href="advanced/dot-env/" title="环境变量" class="md-nav__link">
-      环境变量
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="advanced/parameters/" title="参数化数据驱动" class="md-nav__link">
-      参数化数据驱动
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="advanced/testcase-layer/" title="测试用例分层" class="md-nav__link">
-      测试用例分层
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="advanced/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
-      Validate & Prettify
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="advanced/security/" title="信息安全" class="md-nav__link">
-      信息安全
+    <a href="development.md" title="基础库调用" class="md-nav__link">
+      基础库调用
     </a>
   </li>
 
@@ -545,8 +575,8 @@
 
 
   <li class="md-nav__item">
-    <a href="load-test/" title="性能测试" class="md-nav__link">
-      性能测试
+    <a href="FAQ/" title="FAQ" class="md-nav__link">
+      FAQ
     </a>
   </li>
 
@@ -556,22 +586,34 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      实践案例
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        实践案例
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="development/" title="开发扩展" class="md-nav__link">
-      开发扩展
+    <a href="examples/testerhome-login/" title="TesterHome 登录" class="md-nav__link">
+      TesterHome 登录
     </a>
   </li>
 
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="FAQ/" title="常见问题" class="md-nav__link">
-      常见问题
-    </a>
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -691,13 +733,13 @@
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="concept/architecture/" title="架构图" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="Installation/" title="安装说明" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  前进
+                  下一页
                 </span>
-                架构图
+                安装说明
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -723,24 +765,22 @@
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
-    <link rel="stylesheet" href="./assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css">
     
-      <a href="http://debugtalk.com" class="md-footer-social__link fa fa-globe"></a>
+      <a href="https://debugtalk.com" class="md-footer-social__link fa fa-globe"></a>
     
       <a href="https://github.com/httprunner" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="assets/javascripts/application.583bbe55.js"></script>
+      <script src="assets/javascripts/application.245445c6.js"></script>
       
         
         
@@ -751,10 +791,6 @@
           
             
               
-                <script src="assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="assets/javascripts/lunr/lunr.jp.js"></script>
               
             
           
@@ -764,11 +800,6 @@
         
       
       <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-114587036-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>
