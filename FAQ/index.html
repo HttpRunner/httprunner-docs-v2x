@@ -535,66 +535,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        FAQ
-      </label>
-    
     <a href="./" title="FAQ" class="md-nav__link md-nav__link--active">
       FAQ
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#https" title="支持 https 吗" class="md-nav__link">
-    支持 https 吗
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postapplicationjsonapplicationx-www-form-urlencoded" title="post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？" class="md-nav__link">
-    post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="如何实现接口之间参数的关联？" class="md-nav__link">
-    如何实现接口之间参数的关联？
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validate" title="validate 自定义函数支持多参数" class="md-nav__link">
-    validate 自定义函数支持多参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？" class="md-nav__link">
-    为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -664,50 +607,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#https" title="支持 https 吗" class="md-nav__link">
-    支持 https 吗
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postapplicationjsonapplicationx-www-form-urlencoded" title="post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？" class="md-nav__link">
-    post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="如何实现接口之间参数的关联？" class="md-nav__link">
-    如何实现接口之间参数的关联？
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validate" title="validate 自定义函数支持多参数" class="md-nav__link">
-    validate 自定义函数支持多参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？" class="md-nav__link">
-    为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -720,78 +619,6 @@
                 
                 
                 <h1 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="https">支持 https 吗<a class="headerlink" href="#https" title="Permanent link">&para;</a></h2>
-<p>https://github.com/HttpRunner/HttpRunner/issues/15
-https://github.com/HttpRunner/HttpRunner/issues/39</p>
-<p>底层是完全复用的requests，所以只要requests支持的功能，这款框架都支持。另外，如果你测试的https网站没有证书，你可以采用 verify=False 来关闭校验。</p>
-<p>参考链接：http://docs.python-requests.org/en/master/api/#requests.request</p>
-<h2 id="postapplicationjsonapplicationx-www-form-urlencoded">post只支持application/json吗？可以支持application/x-www-form-urlencoded的编码方式吗？<a class="headerlink" href="#postapplicationjsonapplicationx-www-form-urlencoded" title="Permanent link">&para;</a></h2>
-<p>https://github.com/HttpRunner/HttpRunner/issues/17</p>
-<p>底层是完全复用的requests，所以只要requests支持的功能，这款框架都支持。</p>
-<p>参考链接：http://docs.python-requests.org/en/master/api/#requests.request</p>
-<h2 id="_2">如何实现接口之间参数的关联？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>https://github.com/HttpRunner/HttpRunner/issues/3</p>
-<p>登录过程中获取的token，可以在之后的testcase中使用</p>
-<p>这个功能是已经有了的。例如下面的形式，通过<code>extract_binds</code>将token提取出来并保存到<code>user_token</code>，然后后续的请求都可以直接用了。</p>
-<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">test</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">login with email to get user token</span>
-    <span class="nt">request</span><span class="p">:</span>
-        <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/apis/apprest/v1/email_login</span>
-        <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
-        <span class="nt">headers</span><span class="p">:</span>
-            <span class="nt">Content-Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">application/x-www-form-urlencoded</span>
-        <span class="nt">data</span><span class="p">:</span>
-            <span class="nt">email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_email</span>
-            <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_passwd</span>
-    <span class="nt">extract_binds</span><span class="p">:</span>
-        <span class="nt">user_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">content.data.token</span>
-    <span class="nt">validators</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;status_code&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">200</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;headers.content-type&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;application/json;charset=UTF-8&quot;</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.code&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">0</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.message&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;ok&quot;</span><span class="p p-Indicator">}</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">test</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/users/user_id/home</span>
-    <span class="nt">request</span><span class="p">:</span>
-        <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/users/$user_id/home</span>
-        <span class="nt">params</span><span class="p">:</span>
-            <span class="nt">page</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-            <span class="nt">page_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
-            <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_token</span>
-        <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GET</span>
-    <span class="nt">validators</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;status_code&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">200</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;headers.content-type&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;application/json;</span><span class="nv"> </span><span class="s">charset=utf-8&quot;</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.status&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">0</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.status_msg&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;ok&quot;</span><span class="p p-Indicator">}</span>
-        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="s">&quot;check&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;content.items&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;expected&quot;</span><span class="p p-Indicator">:</span> <span class="nv">10</span><span class="p p-Indicator">,</span> <span class="s">&quot;comparator&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;len_gt&quot;</span><span class="p p-Indicator">}</span>
-</pre></div>
-
-
-<h2 id="validate">validate 自定义函数支持多参数<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h2>
-<p>https://github.com/HttpRunner/HttpRunner/issues/65</p>
-<p>validate终于支持自定义函数了~
-然而发现只能传入两个参数，一个是校验字段，一个是期望值。
-但是有时候业务逻辑比较复杂，需要从返回值中抽取多个字段，再经过自定义函数判断是否符合断言。
-比如，返回值中有start_time，end_time，断言是判断中间的时间差是否小于指定值。
-目前想到的办法就是正则匹配的时候把需要的参数都匹配进去，在自定义函数中实现字段抽取&amp;断言。
-这种方式不是很优雅。</p>
-<p>自定义校验函数的确是只能传入两个参数，但是通过灵活应用，同样能实现各种复杂的检测。
-就拿你列举的案例来说，你希望检查返回值中的start_time和end_time差值是否小于指定值，那么你在编写自定义校验函数的时候，就可以在第一个参数中传入完整的返回值，第二个参数传入指定值。
-然后在自定义校验函数中，先从完整的返回值中解析出start_time和end_time，然后再计算差值进行比较断言。</p>
-<p>def validate_time_interval(content, specified_time):
-    # 1、从返回结果中提取出start_time和end_time
-    start_time, end_time = parse(content)</p>
-<div class="codehilite"><pre><span></span># 2、进行比较断言
-assert end_time - start_time &lt; specified_time
-</pre></div>
-
-
-<h2 id="_3">为什么在自定义函数中实现了登录操作，但在后续请求中没有登录态？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>https://github.com/HttpRunner/HttpRunner/issues/60</p>
-<p>在同一个<code>JSON/YAML</code>文件里面，所有的testcase都是共用的一个<code>requests.Session</code>，所以session是能共用的。
-但需要注意的是，如果你将登录部分放置到了<code>debugtalk.py</code>中，那么就相当于同时初始化了两个<code>requests.Session</code>，就没法共享session了。</p>
                 
                   
                 
@@ -894,6 +721,8 @@ assert end_time - start_time &lt; specified_time
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../js/slardar.js"></script>
       
     
   </body>
