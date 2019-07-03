@@ -40,7 +40,7 @@
     
     
       
-        <title>开发扩展 - HttpRunner V2.x 中文使用文档</title>
+        <title>基础库调用 - HttpRunner V2.x 中文使用文档</title>
       
     
     
@@ -140,7 +140,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                开发扩展
+                基础库调用
               
             </span>
           
@@ -291,10 +291,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      测试准备
+      基础概念
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        基础概念
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concept/nominal/" title="名词解释" class="md-nav__link">
+      名词解释
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      测试准备
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
         测试准备
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -420,13 +456,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       测试执行
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         测试执行
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -477,16 +513,18 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-7">
       开发扩展
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-7">
         开发扩展
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -498,7 +536,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../concept/architecture.md" title="Pipline" class="md-nav__link">
+    <a href="../architecture/" title="Pipline" class="md-nav__link">
       Pipline
     </a>
   </li>
@@ -508,11 +546,124 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../development.md" title="基础库调用" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        基础库调用
+      </label>
+    
+    <a href="./" title="基础库调用" class="md-nav__link md-nav__link--active">
       基础库调用
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#httprunner-class" title="HttpRunner class" class="md-nav__link">
+    HttpRunner class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="可用初始化参数" class="md-nav__link">
+    可用初始化参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="可用调用方法" class="md-nav__link">
+    可用调用方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="可用属性" class="md-nav__link">
+    可用属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="运行测试用例" class="md-nav__link">
+    运行测试用例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="传入测试用例文件路径" class="md-nav__link">
+    传入测试用例文件路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="传入标准的测试用例结构体" class="md-nav__link">
+    传入标准的测试用例结构体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugtalkpy-env" title="加载 debugtalk.py &amp;&amp; .env" class="md-nav__link">
+    加载 debugtalk.py &amp;&amp; .env
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="返回详细测试结果数据" class="md-nav__link">
+    返回详细测试结果数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" title="生成 HTML 测试报告" class="md-nav__link">
+    生成 HTML 测试报告
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -540,13 +691,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       实践案例
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         实践案例
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1027,6 +1178,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../architecture/" title="Pipline" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Pipline
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../FAQ/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                FAQ
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
