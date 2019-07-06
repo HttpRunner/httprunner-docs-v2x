@@ -879,7 +879,7 @@
 <p>这就是典型的参数化和数据驱动。</p>
 <p>如需了解 HttpRunner 参数化数据驱动机制的实现原理和技术细节，可前往阅读<a href="http://debugtalk.com/post/httprunner-data-driven/">《HttpRunner 实现参数化数据驱动机制》</a>。</p>
 <h2 id="testsuite">测试用例集（testsuite）准备<a class="headerlink" href="#testsuite" title="Permanent link">&para;</a></h2>
-<p>从 2.0.0 版本开始，HttpRunner 不再支持在测试用例文件中进行参数化配置；参数化的功能需要在 testsuite 中实现。变更的目的是让测试用例（testcase）的概念更纯粹，关于测试用例和测试用例集的概念定义，详见<a href="/concept/testcase-structure/">《测试用例组织》</a>。</p>
+<p>从 2.0.0 版本开始，HttpRunner 不再支持在测试用例文件中进行参数化配置；参数化的功能需要在 testsuite 中实现。变更的目的是让测试用例（testcase）的概念更纯粹，关于测试用例和测试用例集的概念定义，详见<a href="/prepare/parameters/">《测试用例组织》</a>。</p>
 <p>参数化机制需要在测试用例集（testsuite）中实现。如需实现数据驱动机制，需要创建一个 testsuite，在 testsuite 中引用测试用例，并定义参数化配置。</p>
 <p>测试用例集（testsuite）的格式如下所示：</p>
 <div class="codehilite"><pre><span></span><span class="nt">config</span><span class="p">:</span>
@@ -894,7 +894,7 @@
 </pre></div>
 
 
-<p>需要注意的是，testsuite 和 testcase 的格式存在较大区别，详见<a href="/concept/testcase-structure/">《测试用例组织》</a>。</p>
+<p>需要注意的是，testsuite 和 testcase 的格式存在较大区别，详见<a href="/prepare/testcase-structure/">《测试用例组织》</a>。</p>
 <h2 id="_2">参数配置概述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>如需对某测试用例（testcase）实现参数化数据驱动，需要使用 <code>parameters</code> 关键字，定义参数名称并指定数据源取值方式。</p>
 <p>参数名称的定义分为两种情况：</p>

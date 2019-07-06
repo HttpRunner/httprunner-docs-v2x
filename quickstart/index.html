@@ -955,7 +955,7 @@ INFO:root:Generate YAML testcase successfully: docs/data/demo-quickstart.yml
 </pre></div>
 
 
-<p>使用 <code>har2case</code> 转换脚本时默认转换为 JSON 格式，加上 <code>-2y</code> 参数后转换为 YAML 格式。两种格式完全等价，YAML 格式更简洁，JSON 格式支持的工具更丰富，大家可根据个人喜好进行选择。关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="/basic/record/">《录制生成测试用例》</a>。</p>
+<p>使用 <code>har2case</code> 转换脚本时默认转换为 JSON 格式，加上 <code>-2y</code> 参数后转换为 YAML 格式。两种格式完全等价，YAML 格式更简洁，JSON 格式支持的工具更丰富，大家可根据个人喜好进行选择。关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="/prepare/record/">《录制生成测试用例》</a>。</p>
 <p>经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 YAML 格式测试用例文件 <a href="../data/demo-quickstart.yml">demo-quickstart.yml</a>，其内容如下：</p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">config</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">testcase description</span>
@@ -1009,7 +1009,7 @@ INFO:root:Generate YAML testcase successfully: docs/data/demo-quickstart.yml
 <li><code>test</code> 对应单个测试步骤，作用域仅限于本身</li>
 </ul>
 <p>如上便是 HttpRunner 测试用例的基本结构。</p>
-<p>关于测试用例的更多内容，请查看<a href="/concept/testcase-structure/">《测试用例结构描述》</a>。</p>
+<p>关于测试用例的更多内容，请查看<a href="/prepare/testcase-structure/">《测试用例结构描述》</a>。</p>
 <h3 id="_5">首次运行测试用例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>测试用例就绪后，我们可以开始调试运行了。</p>
 <p>为了演示测试用例文件的迭代优化过程，我们先将 demo-quickstart.json 重命名为 <a href="../data/demo-quickstart-0.json">demo-quickstart-0.json</a>（对应的 YAML 格式：<a href="../data/demo-quickstart-0.yml">demo-quickstart-0.yml</a>）。</p>
@@ -1434,14 +1434,14 @@ INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/httpr
 </details>
 
 <p>可以看出，测试用例总共运行了 4 次，并且每次运行时都是采用的不同 user_id。</p>
-<p>关于参数化数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读<a href="/advanced/data-driven/">《数据驱动使用手册》</a>。</p>
+<p>关于参数化数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读<a href="/prepare/parameters/">《数据驱动使用手册》</a>。</p>
 <h2 id="_13">查看测试报告<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>在每次使用 hrun 命令运行测试用例后，均会生成一份 HTML 格式的测试报告。报告文件位于 reports 目录下，文件名称为测试用例的开始运行时间。</p>
 <p>例如，在运行完 <a href="../data/demo-quickstart-1.json">demo-quickstart-1.json</a> 后，将生成如下形式的测试报告：</p>
 <p><img alt="" src="/images/report-demo-quickstart-1-overview.jpg" /></p>
 <p><img alt="" src="/images/report-demo-quickstart-1-log2.jpg" /></p>
 <p><img alt="" src="/images/report-demo-quickstart-1-traceback.jpg" /></p>
-<p>关于测试报告的详细内容，请查看<a href="/basic/report/">《测试报告》</a>部分。</p>
+<p>关于测试报告的详细内容，请查看<a href="/run-tests/report/">《测试报告》</a>部分。</p>
 <h2 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>到此为止，HttpRunner 的核心功能就介绍完了，掌握本文中的功能特性，足以帮助你应对日常项目工作中至少 80% 的自动化测试需求。</p>
 <p>当然，HttpRunner 不止于此，如需挖掘 HttpRunner 的更多特性，实现更复杂场景的自动化测试需求，可继续阅读后续文档。</p>
